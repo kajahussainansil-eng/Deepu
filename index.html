@@ -22,9 +22,9 @@ content="width=device-width, initial-scale=1.0">
 body{
 
   margin:0;
-  padding:0;
+  padding:20px;
 
-  height:100vh;
+  min-height:100vh;
 
   overflow:hidden;
 
@@ -67,11 +67,9 @@ body{
 
 .container{
 
-  width:90%;
+  width:min(92vw,700px);
 
-  max-width:700px;
-
-  padding:35px;
+  padding:28px;
 
   border-radius:30px;
 
@@ -88,6 +86,10 @@ body{
   position:relative;
 
   z-index:10;
+
+  max-height:90vh;
+
+  overflow:auto;
 }
 
 @keyframes glow{
@@ -103,34 +105,38 @@ body{
 
 #greeting{
 
-  position:absolute;
+  position:fixed;
 
-  top:20px;
-  left:20px;
+  top:12px;
+  left:12px;
+
+  max-width:80vw;
 
   background:rgba(255,255,255,0.15);
 
-  padding:12px 18px;
+  padding:10px 14px;
 
-  border-radius:20px;
+  border-radius:18px;
 
   font-weight:bold;
 
   backdrop-filter:blur(10px);
 
   z-index:20;
+
+  font-size:clamp(0.8rem,3vw,1rem);
 }
 
 h1{
 
-  font-size:3rem;
+  font-size:clamp(2rem,7vw,3rem);
 
   margin-bottom:20px;
 }
 
 #time{
 
-  font-size:4rem;
+  font-size:clamp(2.2rem,10vw,4rem);
 
   font-weight:bold;
 }
@@ -140,6 +146,8 @@ h1{
   margin-top:10px;
 
   opacity:0.9;
+
+  font-size:clamp(0.9rem,3vw,1rem);
 }
 
 .quote{
@@ -267,6 +275,29 @@ h1{
   }
 }
 
+@media (max-width:600px){
+
+  .links{
+
+    grid-template-columns:1fr;
+  }
+
+  .search input{
+
+    width:100%;
+  }
+
+  .quote{
+
+    font-size:1rem;
+  }
+
+  .container{
+
+    padding:24px;
+  }
+}
+
 </style>
 
 </head>
@@ -352,14 +383,6 @@ Pinterest 🌷
 </div>
 
 </div>
-
-<audio autoplay loop>
-
-<source
-src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=lofi-study-112191.mp3"
-type="audio/mpeg">
-
-</audio>
 
 <script>
 
@@ -493,4 +516,5 @@ setInterval(createCloud,4000);
 </script>
 
 </body>
+
 </html>
